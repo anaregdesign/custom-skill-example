@@ -11,7 +11,7 @@ func main() {
 		return process.GetTopWord(s, 10)
 	})
 	book := skill.NewBook()
-	book.Register("top10", top10Skill.Flatten())
+	book.Register("topwords", top10Skill.Flatten())
 
 	svc := service.NewCustomSkillService(book)
 	svc.Run()
