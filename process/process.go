@@ -13,6 +13,12 @@ func GetTopWord(s string, k int) ([]string, error) {
 		"to", "was", "what", "when", "where", "who", "will",
 		"i", "you", "he", "she", "it", "we", "they", "my",
 		"your", "his", "her", "its", "our", "their", "me",
+		"", "him", "us", "them", "mine", "yours", "his",
+		"hers", "ours", "theirs", "myself", "yourself",
+		"himself", "herself", "itself", "ourselves",
+		"themselves", "what", "which", "who", "whom",
+		"whose", "this", "that", "these", "those", "am",
+		"\n", "\t", " ", "!", "@", "#", "$", "%", "^", "&",
 	}
 
 	ss := strings.TrimSpace(s)
@@ -37,6 +43,8 @@ func GetTopWord(s string, k int) ([]string, error) {
 	ss = strings.Replace(ss, "_", " ", -1)
 	ss = strings.Replace(ss, "=", " ", -1)
 	ss = strings.Replace(ss, "+", " ", -1)
+	ss = strings.Replace(ss, "\n", " ", -1)
+	ss = strings.Replace(ss, "\t", " ", -1)
 
 	type wordCount struct {
 		word  string
